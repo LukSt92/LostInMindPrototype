@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace LostInMindPrototype
 {
-    abstract class PointOfInterest
+    class PointOfInterest
     {
+        public Item Item;
         public char Index;
         public string Name;
         public string Description;
         public string DescriptionWithItemTaken;
+        public bool IsHereItem;
         public bool IsItemTaken { get; private set; }
 
         public void TakeItem()
@@ -24,6 +26,13 @@ namespace LostInMindPrototype
                 Console.WriteLine($"\n{Description}");
             else
                 Console.WriteLine($"\n{DescriptionWithItemTaken}");
+        }
+        public virtual void ShowMenu()
+        {
+            if (IsItemTaken == false)
+                Console.WriteLine($"Press L to look around again, Press T to take {Item.Name} or Q to go back.");
+            else
+                Console.WriteLine($"Press L to look around again or Q to go back.");
         }
     }
 }

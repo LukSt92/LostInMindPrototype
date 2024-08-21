@@ -21,5 +21,9 @@ namespace LostInMindPrototype
         {
             IsTorchTaken = true;
         }
+        public void TakeItem(Item item)
+        {
+            inventory.GetItem(item);
+        }
     }
 }

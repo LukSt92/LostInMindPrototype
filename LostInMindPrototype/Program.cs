@@ -12,6 +12,7 @@ namespace LostInMindPrototype
         {
             Player player = new Player();
             Area area = new Area();
+            PointOfInterest currentPoint = new PointOfInterest();
             Console.WriteLine(@"You woke up... Your head hurts... All you remember is that you were falling...
 and falling...
 and falling...
@@ -20,10 +21,35 @@ You touch your head and feel sticky blood under your fingers, you have to do som
 You search through what you're wearing but these simple clothes don't even have pockets...
 'Where I am' - this is your first conscious thought...
 Feeling dizzy you get up and look around, there is chest near you and some bright point far ahead of you. The rest of this place is covered in darkness...");
-            Console.WriteLine("Where do you want to go?\n");
-            area.ShowPoints();
-            char key = Console.ReadKey().KeyChar;
-            area.GoTo(area.Find(key));
+            while (true)
+            {
+                Console.WriteLine("Where do you want to go?\n");
+                area.ShowPoints();
+                char key = Console.ReadKey().KeyChar;
+                area.GoTo(area.Find(key));
+                currentPoint = area.Find(key);
+                while (true)
+                {
+                    Console.WriteLine("What would you like to do?");
+                    Console.WriteLine($"Press L to look around again, Press T to take {currentPoint.Item.Name} or Q to go back.");
+                    key = Console.ReadKey().KeyChar;
+                    switch (key)
+                    {
+                        case 'l':
+                        case 'L':
+                            currentPoint.ShowDescription();
+                            break;
+                        case 't':
+                        case 'T':
+                            currentPoint.TakeItem();
+                            player.TakeItem(currentPoint.Item);
+                            break;
+                        default:
+                            break;
+                    }
+                    if (key == 'Q' || key == 'q') break;
+                }
+            }
         }
     }
 }

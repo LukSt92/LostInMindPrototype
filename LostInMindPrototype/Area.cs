@@ -29,5 +29,9 @@ namespace LostInMindPrototype
         {
             point.ShowDescription();
         }
+        public void ShowOptions(PointOfInterest point)
+        {
+            Console.WriteLine($"Press L to look around again, Press T to take {point.Item.Name} or Q to go back.");
+        }
     }
 }
