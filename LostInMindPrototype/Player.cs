@@ -9,7 +9,7 @@ namespace LostInMindPrototype
     class Player
     {
         Inventory inventory = new Inventory();
-        public int Hp = 100;
+        public bool IsHeadOkay;
         public bool IsBagTaken { get; private set; }
         public bool IsTorchTaken { get; private set; }
 
