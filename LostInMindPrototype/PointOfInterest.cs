@@ -6,21 +6,23 @@ using System.Threading.Tasks;
 
 namespace LostInMindPrototype
 {
-    class PointOfInterest
+    abstract class PointOfInterest
     {
-        public bool IsKeyRequired;
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public bool IsOpen { get; private set; }
+        public string Name;
+        public string Description;
+        public string DescriptionWithItemTaken;
         public bool IsItemTaken { get; private set; }
 
         public void TakeItem()
         {
             IsItemTaken = true;
         }
-        public void UseKey()
+        public void ShowDescription()
         {
-            IsOpen = true;
+            if (IsItemTaken == false)
+                Console.WriteLine(Description);
+            else
+                Console.WriteLine(DescriptionWithItemTaken);
         }
     }
 }
