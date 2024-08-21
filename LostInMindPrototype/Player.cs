@@ -10,13 +10,7 @@ namespace LostInMindPrototype
     {
         Inventory inventory = new Inventory();
         public bool IsHeadOkay;
-        public bool IsBagTaken { get; private set; }
         public bool IsTorchTaken { get; private set; }
-
-        public void TakeBag()
-        {
-            IsBagTaken = true;
-        }
         public void TakeTorch()
         {
             IsTorchTaken = true;

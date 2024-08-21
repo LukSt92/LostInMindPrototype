@@ -43,6 +43,11 @@ Feeling dizzy you get up and look around, there is chest near you and some brigh
                         case 'T':
                             currentPoint.TakeItem();
                             player.TakeItem(currentPoint.Item);
+                            if (currentPoint.Item.Name == "Torch")
+                            { 
+                                Console.WriteLine("The moment you grabbed the torch, everything lit up...\nit was as if the flames from the torch had spread across the entire ceiling in that area");
+                                // TODO Add new point of interest!
+                            }
                             break;
                         default:
                             break;
