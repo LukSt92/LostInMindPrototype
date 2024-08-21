@@ -20,6 +20,10 @@ You touch your head and feel sticky blood under your fingers, you have to do som
 You search through what you're wearing but these simple clothes don't even have pockets...
 'Where I am' - this is your first conscious thought...
 Feeling dizzy you get up and look around, there is chest near you and some bright point far ahead of you. The rest of this place is covered in darkness...");
+            Console.WriteLine("Where do you want to go?\n");
+            area.ShowPoints();
+            char key = Console.ReadKey().KeyChar;
+            area.GoTo(area.Find(key));
         }
     }
 }

@@ -8,14 +8,26 @@ namespace LostInMindPrototype
 {
     class Area
     {
-        List<PointOfInterest> points = new List<PointOfInterest>();
+        List<PointOfInterest> points = new List<PointOfInterest>()
+        {
+            new StartingPlace(),
+            new BrightPlace(),
+        };
 
         public void ShowPoints()
         {
             foreach (var point in points)
             {
-                Console.WriteLine(point.Name);
+                Console.WriteLine($"{point.Name} - press {point.Index} to go there.");
             }
+        }
+        public PointOfInterest Find(char key)
+        {
+             return points.Find(x => x.Index == key);
+        }
+        public void GoTo(PointOfInterest point)
+        {
+            point.ShowDescription();
         }
     }
 }

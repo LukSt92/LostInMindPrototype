@@ -8,6 +8,7 @@ namespace LostInMindPrototype
 {
     abstract class PointOfInterest
     {
+        public char Index;
         public string Name;
         public string Description;
         public string DescriptionWithItemTaken;
@@ -20,9 +21,9 @@ namespace LostInMindPrototype
         public void ShowDescription()
         {
             if (IsItemTaken == false)
-                Console.WriteLine(Description);
+                Console.WriteLine($"\n{Description}");
             else
-                Console.WriteLine(DescriptionWithItemTaken);
+                Console.WriteLine($"\n{DescriptionWithItemTaken}");
         }
     }
 }
