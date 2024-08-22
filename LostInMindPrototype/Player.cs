@@ -19,5 +19,10 @@ namespace LostInMindPrototype
         {
             inventory.GetItem(item);
         }
+        public void ShowInventory()
+        {
+            inventory.ShowInventory();
+        }
+
     }
 }
