@@ -9,6 +9,7 @@ namespace LostInMindPrototype
     class Inventory
     {
         List<Item> items = new List<Item>();
+        Player player;
         private int lastId = 1;
         public void ShowInventory()
         {
@@ -44,6 +45,8 @@ namespace LostInMindPrototype
         {
             if (item.IsUseable == true)
             {
+                if(item.Name == "Pills")
+                    player.PillsUsed();
                 Console.WriteLine($"You used {item.Name}.\n");
                 items.Remove(item);
             }

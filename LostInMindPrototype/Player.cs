@@ -25,5 +25,10 @@ namespace LostInMindPrototype
         {
             inventory.ShowInventory();
         }
+        public void PillsUsed()
+        {
+            IsHeadOkay = true;
+            Console.WriteLine("The headache is gone, a wound from a fall to... Weird");
+        }
     }
 }
