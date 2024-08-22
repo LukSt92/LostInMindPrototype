@@ -8,12 +8,12 @@ namespace LostInMindPrototype
 {
     class PointOfInterest
     {
+        Player player;
         public Item Item;
         public char Index;
         public string Name;
         public string Description;
         public string DescriptionWithItemTaken;
-        public bool IsHereItem;
         public bool IsItemTaken { get; private set; }
 
         public void TakeItem()
@@ -22,7 +22,7 @@ namespace LostInMindPrototype
         }
         public void ShowDescription()
         {
-            if (IsItemTaken == false)
+            if (IsItemTaken == false || player.IsHeadOkay == false)
                 Console.WriteLine($"\n{Description}");
             else
                 Console.WriteLine($"\n{DescriptionWithItemTaken}");
