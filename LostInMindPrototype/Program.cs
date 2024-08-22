@@ -41,33 +41,80 @@ Feeling dizzy you get up and look around, there is chest near you and some brigh
                     currentPoint = area.Find(key);
                     while (true)
                     {
-                        Console.WriteLine("What would you like to do?");
-                        Console.WriteLine($"Press L - to look around again, I - to open inventory, T - to take {currentPoint.Item.Name} or Q - to go back.");
-                        key = Console.ReadKey().KeyChar;
-                        switch (key)
+                        if (currentPoint.Index == 'C')
                         {
-                            case 'l':
-                            case 'L':
-                                currentPoint.ShowDescription();
-                                break;
-                            case 't':
-                            case 'T':
-                                currentPoint.TakeItem();
-                                player.TakeItem(currentPoint.Item);
-                                if (currentPoint.Item.Name == "Torch")
-                                {
-                                    Console.WriteLine("\nThe moment you grabbed the torch, everything lit up...\nit was as if the flames from the torch had spread across the entire ceiling in that area");
-                                    // TODO Add new point of interest!
-                                }
-                                break;
-                            default:
-                                break;
+                            Console.WriteLine($"What would you like to do? You are currently in {currentPoint.Name}");
+                            if (currentPoint.IsItemTaken)
+                                Console.WriteLine($"Press L - to look around again, I - to open inventory or Q - to go back.");
+                            else
+                                Console.WriteLine($"Press L - to look around again, I - to open inventory, O - to open the chest or Q - to go back.");
+                            key = Console.ReadKey().KeyChar;
+                            switch (key)
+                            {
+                                case 'i':
+                                case 'I':
+                                    player.ShowInventory();
+                                    break;
+                                case 'l':
+                                case 'L':
+                                    currentPoint.ShowDescription();
+                                    break;
+                                case 'o':
+                                case 'O':
+                                    if (player.IsKeyTaken && currentPoint.IsItemTaken == false)
+                                    {
+                                        Console.WriteLine("You inserted the key, it fits perfectly, you turn it and now the chest is open.\n Inside you see some pills with a note 'For Headache' Perfect.");
+                                        currentPoint.TakeItem();
+                                        player.TakeItem(currentPoint.Item);
+                                    }
+                                    if (!player.IsKeyTaken)
+                                        Console.WriteLine("\nThe chest is locked, you need a key to open it.");
+                                    else
+                                        currentPoint.ShowDescription();
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
-                        if (key == 'Q' || key == 'q') break;
+                        if (currentPoint.Index != 'C')
+                        {
+                            Console.WriteLine($"What would you like to do? You are currently in {currentPoint.Name}");
+                            if (currentPoint.IsItemTaken)
+                                Console.WriteLine($"Press L - to look around again, I - to open inventory or Q - to go back.");
+                            else
+                                Console.WriteLine($"Press L - to look around again, I - to open inventory, T - to take {currentPoint.Item.Name} or Q - to go back.");
+                            key = Console.ReadKey().KeyChar;
+                            switch (key)
+                            {
+                                case 'i':
+                                case 'I':
+                                    player.ShowInventory();
+                                    break;
+                                case 'l':
+                                case 'L':
+                                    currentPoint.ShowDescription();
+                                    break;
+                                case 't':
+                                case 'T':
+                                    currentPoint.TakeItem();
+                                    player.TakeItem(currentPoint.Item);
+                                    if (currentPoint.Item.Name == "Torch")
+                                    {
+                                        Console.WriteLine("\nThe moment you grabbed the torch, everything lit up...\nit was as if the flames from the torch had spread across the entire ceiling in that area");
+                                        area.AddNewAreas();
+                                    }
+                                    if (currentPoint.Item.Name == "Key")
+                                        player.IsKeyTaken = true;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                            if (key == 'Q' || key == 'q') break;
+                        }
                     }
-                }
 
+                }
             }
         }
     }
-}

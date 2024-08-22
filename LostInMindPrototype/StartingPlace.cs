@@ -10,6 +10,7 @@ namespace LostInMindPrototype
     {
         public StartingPlace()
         {
+            Item = new Item() { Name = "Pills", Description = "For Headache.", IsUseable = true };
             Name = "Starting place";
             Description = "You see only ground and a chest.\n";
             DescriptionWithItemTaken = "You see an open chest, there is nothing more to do here.\n";

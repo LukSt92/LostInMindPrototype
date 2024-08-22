@@ -33,5 +33,10 @@ namespace LostInMindPrototype
         {
             Console.WriteLine($"Press L to look around again, Press T to take {point.Item.Name} or Q to go back.");
         }
+        public void AddNewAreas()
+        {
+            points.Add(new StrangePlace());
+            points.Add(new PileOfClothesPlace());
+        }
     }
 }

@@ -47,6 +47,7 @@
     <Compile Include="BrightPlace.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="PileOfClothesPlace.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PointOfInterest.cs" />
     <Compile Include="Program.cs" />

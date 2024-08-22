@@ -12,6 +12,6 @@ namespace LostInMindPrototype
         public string Name;
         public string Description;
         public bool IsKey;
-        public bool isUseable;
+        public bool IsUseable;
     }
 }

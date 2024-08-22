@@ -11,6 +11,8 @@ namespace LostInMindPrototype
         Inventory inventory = new Inventory();
         public bool IsHeadOkay;
         public bool IsTorchTaken { get; private set; }
+        public bool IsKeyTaken;
+
         public void TakeTorch()
         {
             IsTorchTaken = true;
@@ -23,6 +25,5 @@ namespace LostInMindPrototype
         {
             inventory.ShowInventory();
         }
-
     }
 }

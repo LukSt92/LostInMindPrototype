@@ -42,7 +42,7 @@ namespace LostInMindPrototype
         }
         public void UseItem(Item item)
         {
-            if (item.isUseable == true)
+            if (item.IsUseable == true)
             {
                 Console.WriteLine($"You used {item.Name}.\n");
                 items.Remove(item);
