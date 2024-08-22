@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Area.cs" />
     <Compile Include="BrightPlace.cs" />
+    <Compile Include="DoorPlace.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="PileOfClothesPlace.cs" />

@@ -76,7 +76,41 @@ Feeling dizzy you get up and look around, there is chest near you and some brigh
                                     break;
                             }
                         }
-                        if (currentPoint.Index != 'C')
+                        if (currentPoint.Index == 'X')
+                        {
+                            Console.WriteLine($"What would you like to do? You are currently in {currentPoint.Name}");
+                            Console.WriteLine($"Press L - to look around again, I - to open inventory, O - to type password or Q - to go back.");
+                            key = Console.ReadKey().KeyChar;
+                            switch (key)
+                            {
+                                case 'i':
+                                case 'I':
+                                    player.ShowInventory();
+                                    break;
+                                case 'l':
+                                case 'L':
+                                    currentPoint.ShowDescription();
+                                    break;
+                                case 'o':
+                                case 'O':
+                                    Console.WriteLine("Type password (6 digits only):");
+                                    if (int.TryParse(Console.ReadLine(), out int pass))
+                                        if (pass == 657431)
+                                        {
+                                            // ENDING TODO
+                                            // Poprawić wszystkie teksty tak żeby się nie mieszały ze sobą oraz żeby można było je łatwo przeczytać!
+                                            // Spróbować zrefaktoryzować kod bo w niektórych miejscach aż w oczy kole.
+                                        }
+                                        else
+                                            Console.WriteLine("Sorry, wrong password.");
+                                    else
+                                        Console.WriteLine("DIGITS ONLY!!");
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        if (currentPoint.Index != 'C' && currentPoint.Index != 'X')
                         {
                             Console.WriteLine($"What would you like to do? You are currently in {currentPoint.Name}");
                             if (currentPoint.IsItemTaken)

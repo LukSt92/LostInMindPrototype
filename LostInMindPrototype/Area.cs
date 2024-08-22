@@ -37,6 +37,7 @@ namespace LostInMindPrototype
         {
             points.Add(new StrangePlace());
             points.Add(new PileOfClothesPlace());
+            points.Add(new DoorPlace());
         }
     }
 }
