@@ -97,7 +97,11 @@ Feeling dizzy you get up and look around, there is chest near you and some brigh
                                     if (int.TryParse(Console.ReadLine(), out int pass))
                                         if (pass == 657431)
                                         {
-                                            // ENDING TODO
+                                            Console.WriteLine("'Correct password' flashed on the screen, Finally you can escape from this horrible place...\nYou hear strange sounds of machines coming from everywhere and you look expectantly at the closed door, hoping that it will open soon.\n" +
+                                                "Suddenly the floor you were standing on disappeared and you started falling...\nand falling...\nand falling...");
+                                            Console.WriteLine("\n\nThanks for playing in this prototype, press anything to exit.");
+                                            Environment.Exit(0);
+
                                             // Poprawić wszystkie teksty tak żeby się nie mieszały ze sobą oraz żeby można było je łatwo przeczytać!
                                             // Spróbować zrefaktoryzować kod bo w niektórych miejscach aż w oczy kole.
                                         }
