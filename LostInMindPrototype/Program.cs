@@ -134,7 +134,8 @@ Feeling dizzy you get up and look around, there is chest near you and some brigh
                                     {
                                         Console.WriteLine(point.DescWithoutHeadache);
                                     }
-                                    currentPoint.ShowDescription();
+                                    else
+                                        currentPoint.ShowDescription();
                                     break;
                                 case 't':
                                 case 'T':
