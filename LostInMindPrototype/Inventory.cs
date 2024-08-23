@@ -9,21 +9,21 @@ namespace LostInMindPrototype
     class Inventory
     {
         List<Item> items = new List<Item>();
-        Player player;
         private int lastId = 1;
+        public bool IsHeadOkay { get; private set; }
         public void ShowInventory()
         {
             while (true)
             {
                 if (items.Count == 0)
                 {
-                    Console.WriteLine("\nYou don't have any items.");
+                    Console.WriteLine("\n\nYou don't have any items.");
                     break;
                 }
-                Console.WriteLine("\nTo use item press his Id number or press Q to return:");
+                Console.WriteLine("\n\nTo use item press his Id number or press Q to return:");
                 foreach (Item item in items)
                 {
-                    Console.WriteLine($"Id:{item.Id} - {item.Name} - {item.Description}\n");
+                    Console.WriteLine($"\nId:{item.Id} - {item.Name} - {item.Description}\n");
                 }
                 char key = Console.ReadKey().KeyChar;
                 key = char.ToUpper(key);
@@ -45,13 +45,16 @@ namespace LostInMindPrototype
         {
             if (item.IsUseable == true)
             {
-                if(item.Name == "Pills")
-                    player.PillsUsed();
-                Console.WriteLine($"You used {item.Name}.\n");
+                if (item.Name == "Pills")
+                {
+                    IsHeadOkay = true;
+                    Console.WriteLine("The headache is gone, a wound from a fall to... Weird");
+                }
+                Console.WriteLine($"\nYou used {item.Name}.\n");
                 items.Remove(item);
             }
             else
-                Console.WriteLine($"You can't use {item.Name} like that. You have to find a place where it will be useful.\n");
+                Console.WriteLine($"\nYou can't use {item.Name} like that. You have to find a place where it will be useful.\n");
         }
     }
 }
